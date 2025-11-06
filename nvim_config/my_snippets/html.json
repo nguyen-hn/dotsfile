@@ -1,0 +1,17 @@
+{
+    "header": {
+        "prefix": "DTYPE",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html>",
+            "\t<head>",
+            "\t\t<meta charset=\"UTF-8\">",
+            "\t\t<title>$1</title>",
+            "\t</head>",
+            "\t<body>",
+            "\t</body>",
+            "</html>"
+        ],
+        "description": "generate header of html"
+    }
+}

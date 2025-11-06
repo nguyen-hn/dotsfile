@@ -1,0 +1,101 @@
+[user]
+    name = nguyen.hoang
+    email = nguyen273@gmail.com
+[alias]
+    ai = add -i
+    au = add -u
+    #############################################################################################
+    br = branch -avv
+    brd = branch -d
+    brdd = branch -D
+    brn = !git branch | grep ^* | cut -d' ' -f2
+    #############################################################################################
+    co = checkout
+    cob = checkout -b
+    #############################################################################################
+    dno = diff --name-only
+    dns = diff --name-status --oneline
+    dnh = diff HEAD
+    #############################################################################################
+    cp = cherry-pick
+    cpc = cherry-pick --continue
+    cpa = cherry-pick --abort
+    #############################################################################################
+    cl = clean -dfx
+    #############################################################################################
+    cm = commit
+    cma = commit --amend
+    #############################################################################################
+    who = shortlog -s --
+    last = log -1 HEAD
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+    work = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+    find = !sh -c git lg --grep="$@"
+    srch = !sh -c 'git grep "$@" $(git rev-list --all)'
+    #############################################################################################
+    fe = fetch
+    #############################################################################################
+    rmt = remote
+    rmv = remote -v
+    rms = remote show
+    #############################################################################################
+    st = status --untracked-files=no -s
+    stn = status -uno
+    stf = status -uno -s | awk '{printf $2}'
+    #############################################################################################
+    me = merge
+    mea = merge --abort
+    mec = merge --continue
+    mes = merge --skip
+    #############################################################################################
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbs = rebase --skip
+    rbi = rebase --interactive
+    #############################################################################################
+    stl = stash list
+    stp = stash pop
+    std = stash drop
+    stc = stash clear
+    stw = stash show
+    #############################################################################################
+    stn = show --stat --oneline
+    snt = show --name-status --oneline
+    #############################################################################################
+    rs = reset
+    rh = reset HEAD
+    rsh = reset --hard
+    rss = reset --soft
+[commit]
+    template = ~/.gittemplate
+[core]
+    editor = vim
+    pager = less -FRSX
+    excludesFile = ~/.gitignore
+[color]
+    ui = auto
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    add = green bold
+    change = yellow bold
+    untracked = red bold
+[delta]
+    features = line-numbers decorations
+    line-numbers = true
+[delta "decorations"]
+    minus-style = red bold normal
+    plus-style = green bold normal
+    minus-emph-style = while bold red
+    minus-non-emph-style = red bold normal
+    plus-emph-style = white bold normal
+    plus-non-emph-style = green bold normal
+    minus-empty-line-marker-style = normal normal
+    plus-empty-line-marker-style = normal normal
+[diff]
+    #tool = vimdiff

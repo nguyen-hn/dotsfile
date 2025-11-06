@@ -1,0 +1,398 @@
+{
+    "main": {
+        "prefix": "mainn",
+        "body": [
+            "int main(int argc, char *argv[]) {",
+            "\t$1\n\treturn 0;",
+            "}"
+        ],
+        "description": "generate main function"
+    },
+    "read test case": {
+        "prefix": "tcase",
+        "body": [
+            "int T;",
+            "std::cin >> T;",
+            "while(T--) {",
+            "   solve();",
+            "}"
+        ],
+        "description": "read test case from io"
+    },
+    "speed up": {
+        "prefix": "speed",
+        "body": [
+            "std::ios_base::sync_with_stdio(false);",
+            "std::cin.tie(nullptr);",
+            "std::cout.tie(nullptr);"
+        ],
+        "description": "speed up read/write from io"
+    },
+    "usestd": {
+        "prefix": "usestd",
+        "body": ["using namespace std;"],
+        "description": "using namespace std"
+    },
+    "usell": {
+        "prefix": "usell",
+        "body": [ "using ll = long long;" ],
+        "description": "define long long type"
+    },
+    "switch": {
+        "prefix": "switch",
+        "body": [
+            "switch($1) {",
+            "default:",
+            "\tbreak;",
+            "}"
+        ],
+        "description": "switch case"
+    },
+    "while loop": {
+        "prefix": "while",
+        "body": [
+            "while ( $1 ) {",
+            "\t$2",
+            "}"
+        ],
+        "description": "while loop"
+    },
+    "for loop auto": {
+        "prefix": "fora",
+        "body": [
+            "for (auto &${1:elem}: ${2:container}) {",
+            "   $0",
+            "}"
+        ],
+        "description": "for loop auto"
+    },
+    "for index": {
+        "prefix": "fori",
+        "body": ["for(int i = 0; i < $1; i++) {",
+            "   $0",
+            "}"
+        ],
+        "description": "for loop increase index"
+    },
+    "for index but j": {
+        "prefix": "forj",
+        "body": ["for(int j = 0; j < $1; j++) {",
+            "   $0",
+            "}"
+        ],
+        "description": "for loop increase index"
+    },
+	"if": {
+		"prefix": "iff",
+		"body": [
+			"if ($1) {",
+			"	$2",
+			"}"
+		],
+		"description": "Code snippet for if statement"
+	},
+	"else": {
+		"prefix": "else",
+		"body": [
+			"else",
+			"{",
+			"	$1",
+			"}"
+		],
+		"description": "Code snippet for else statement"
+	},
+	"else if": {
+		"prefix": "else if",
+		"body": [
+			"else if ($1)",
+			"{",
+			"	$2",
+			"}"
+		],
+		"description": "Code snippet for else-if statement"
+	},
+	"class": {
+	    "prefix": "class",
+	    "body": [
+	        "class ${1:MyClass} {",
+            "public:",
+            "\t$1 ();",
+            "\t~$1 ();",
+            "private:",
+            "\t$2",
+	        "};"
+	    ],
+	    "description": "Code snippet for class"
+	},
+	"singleton": {
+	    "prefix": "singleton",
+	    "body": [
+	        "class ${1:SingletonClass} {",
+            "public:",
+            "\t$1& getInstance() {",
+            "\t\tstatic $1 ins;",
+            "\t\treturn ins;",
+            "\t}\n",
+            "\t$1 (const $1& ) = delete;",
+            "\t$1 operator=(const $1& ) = delete;",
+            "\t~$1(){}",
+            "private:",
+            "\t$1 () {}",
+	        "};"
+	    ],
+	    "description": "Code snippet for singleton class"
+	},
+	"#ifdef": {
+		"prefix": "#ifdef",
+		"body": [
+			"#ifdef DEBUG",
+			"$1",
+			"#endif // ${DEBUG}"
+		],
+		"description": "Code snippet for #ifdef"
+	},
+	"#ifndef": {
+		"prefix": "#ifndef",
+		"body": [
+			"#ifndef ${1:1}",
+			"$2",
+			"#endif // !$1"
+		],
+		"description": "Code snippet for #ifndef"
+	},
+	"#if": {
+		"prefix": "#if",
+		"body": [
+			"#ifdef ${1:0}",
+			"$2",
+			"#endif // $1"
+		],
+		"description": "Code snippet for #if"
+	},
+	"#inc": {
+		"prefix": "#inc",
+		"body": [
+			"#include \"$1\""
+		],
+		"description": "Code snippet for #include \" \""
+	},
+	"#inc<": {
+		"prefix": "#inc<",
+		"body": [
+			"#include <$1>"
+		],
+		"description": "Code snippet for #include \" \""
+	},
+	"#def": {
+		"prefix": "#def",
+		"body": [
+			"#define $1 \"$2\" "
+			],
+		"description": "Code snippet for #define \" \""
+	},
+	"begin time": {
+	    "prefix": "begintime",
+	    "body": [
+            "std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();",
+            "$1",
+            "std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();",
+            "std::cout << \"Time difference = \" << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << \"[ms]\" << std::endl;"
+	    ],
+	    "description": "Code snippet for elapsed time"
+	},
+	"includes files": {
+	    "prefix": "headers",
+	    "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "#include <map>",
+            "#include <unordered_map>",
+            "#include <queue>",
+            "#include <stack>",
+            "#include <unordered_set>",
+            "#include <set>",
+            "#include <climits>",
+            "#include <algorithm>",
+            "#include <string>",
+            "#include <string.h>",
+            "#include <iomanip>",
+            "#include <utility>",
+            "#include <functional>",
+            "#include <numeric>",
+            "#include <sstream>",
+            "#include <cmath>",
+            "#include <cassert>",
+            "#include <chrono>"
+	    ],
+	    "description": "include std headers"
+	},
+	"util definitions": {
+	    "prefix": "utildef",
+	    "body": [
+            "using namespace std;",
+            "using ll = long long;",
+            "using pii = pair<int, int>;",
+            "using pll = pair<ll, ll>;",
+            "using vi = vector<int>;",
+            "#define FORI(idx, container) for (size_t idx = 0; idx < (container).size(); ++idx)",
+            "#define FOR_EACH(item, container) for(auto &item: (container))",
+            "#define FOR_EACH1(key, val, container) for(auto &[key, val]: (container))",
+            "#define FORI1(i, a, b) for(int i = a; i < (b); i++)",
+            "#define SORT(container) sort(container.begin(), container.end())"
+	    ],
+	    "description": "add util definitions macros"
+	},
+	"tag log": {
+	    "prefix": "dtag",
+	    "body": [
+            "#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1: __FILE__)",
+            "#define TAG \"[\" << __FILENAME__ << \":\" << __LINE__ << \" \" << __FUNCTION__ << \"]\" "
+	    ],
+	    "description": "tag log with file name, line no and function name"
+	},
+	"vector-int": {
+	    "prefix": "veci",
+	    "body": [
+	        "vector<int> ${1:arr}(${2:size})"
+	    ],
+	    "description": "vector<int> with size"
+	},
+	"debug-print": {
+	    "prefix": "dbg",
+	    "body": [
+	        "#if DEBUG",
+	        "cout << \"${1:var} = \" << ${0:var} << endl;",
+	        "#endif"
+	    ],
+	    "description": "quick debug print to cerr"
+	},
+	"graph-adj": {
+	    "prefix": "graphadj",
+	    "body": [
+	        "int n, m;",
+	        "cin >> n >> m;",
+	        "vector<vector<int>> adj(n);",
+	        "for(int i = 0; i < m; i++) {",
+	        "   int u, v;",
+	        "   cin >> u >> v;",
+	        "   --u; --v;",
+	        "   adj[u].push_back(v);",
+	        "   adj[v].push_back(u);",
+	        "}",
+	        "$0"
+	    ],
+	    "description": "Graph adjacency list input"
+	},
+	"min-heap": {
+	    "prefix": "pqm",
+	    "body": [
+	        "priority_queue<int, vector<int>, greater<int>> pq;"
+	    ],
+	    "description": "Min-heap priority queue"
+	},
+	"competitive template": {
+	    "prefix": "competitive",
+	    "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "#include <map>",
+            "#include <unordered_map>",
+            "#include <queue>",
+            "#include <stack>",
+            "#include <unordered_set>",
+            "#include <set>",
+            "#include <climits>",
+            "#include <algorithm>",
+            "#include <string>",
+            "#include <string.h>",
+            "#include <iomanip>",
+            "#include <utility>",
+            "#include <functional>",
+            "#include <numeric>",
+            "#include <sstream>",
+            "#include <cmath>",
+            "#include <cassert>",
+            "#include <chrono>",
+            "using namespace std;",
+            "using ll = long long;",
+            "using pii = pair<int, int>;",
+            "using pll = pair<ll, ll>;",
+            "using vi = vector<int>;",
+            "#define FORI(idx, container) for (size_t idx = 0; idx < (container).size(); ++idx)",
+            "#define FOR_EACH(item, container) for(auto &item: (container))",
+            "#define FOR_EACH1(key, val, container) for(auto &[key, val]: (container))",
+            "#define FORI1(i, a, b) for(int i = a; i < (b); i++)",
+            "#define SORT(container) sort(container.begin(), container.end())",
+            "#define REVERSE(container) reverse(container.begin(), container.end())",
+            "#define READ_VARS(...) int __VA_ARGS__; (std::cin >> ... >> __VA_ARGS__);",
+            "#define READ_TYPE_VARS(type, ...) type __VA_ARGS__; (std::cin >> ... >> __VA_ARGS__);",
+            "#define DEBUG 1\n",
+            "void solve() {",
+            "\t$0",
+            "}\n",
+            "int main(int argc, char *argv[]) {",
+            "\tios_base::sync_with_stdio(false);",
+            "\tcin.tie(nullptr);",
+            "\tcout.tie(nullptr);",
+            "\tint T;",
+            "\tcin >> T;",
+            "\twhile(T--) {",
+            "\t\tsolve();",
+            "\t}",
+            "\treturn 0;",
+            "}"
+	    ],
+	    "description": "template cpp for competitive"
+	},
+	"problem description": {
+	    "prefix": "problem_des",
+	    "body": [
+	        "\/\/ problem description: "
+	    ],
+	    "description": "add problem description, link, sources"
+	},
+	"mod": {
+	    "prefix": "const_mod",
+	    "body": [
+	        "const int mod = 1e9 + 7;"
+	    ],
+	    "description": "const modulo when answer is large"
+	},
+	"get variables function": {
+	    "prefix": "temp_vars",
+	    "body": [
+	        "template<typename ...Args>",
+	        "std::tuple<Args...> get_variables() {",
+	        "\tstd::tuple<Args...> t;",
+	        "\tstd::apply([](auto&... elems) {",
+	        "\t\t(std::cin >> ... >> elems);",
+	        "\t},t);",
+	        "\treturn t;",
+	        "}"
+	    ],
+        "description": "template function to get variadic variables"
+	},
+	"macro colors": {
+	    "prefix": "macro_colors",
+	    "body": [
+            "#define RESET   \"\\033[0m\"",
+            "#define BLACK   \"\\033[30m\"",
+            "#define RED     \"\\033[31m\"",
+            "#define GREEN   \"\\033[32m\"",
+            "#define YELLOW  \"\\033[33m\"",
+            "#define BLUE    \"\\033[34m\"",
+            "#define MAGENTA \"\\033[35m\"",
+            "#define CYAN    \"\\033[36m\"",
+            "#define WHITE   \"\\033[37m\"",
+            "#define BBLACK   \"\\033[1;30m\"",
+            "#define BRED     \"\\033[1;31m\"",
+            "#define BGREEN   \"\\033[1;32m\"",
+            "#define BYELLOW  \"\\033[1;33m\"",
+            "#define BBLUE    \"\\033[1;34m\"",
+            "#define BMAGENTA \"\\033[1;35m\"",
+            "#define BCYAN    \"\\033[1;36m\"",
+            "#define BWHITE   \"\\033[1;37m\""    
+	    ],
+	    "description": "macro to define ansi colors"
+	}
+}

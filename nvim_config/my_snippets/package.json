@@ -1,0 +1,38 @@
+{
+    "name": "example-snippets",
+    "author": "nguyen hoang",
+    "description": "Code snippets",
+    "version": "0.0.1",
+    "engines": {
+        "vscode" : "^1.11.0"
+    },
+    "categories": ["Snippets", "Progamming Languages"],
+    "contributes": {
+        "snippets" : [
+            {
+                "language": "all",
+                "path": "./all.json"
+            },
+            {
+                "language": "python",
+                "path": "./python.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./cpp.json"
+            },
+            {
+                "language": "tex",
+                "path": "./tex.json"
+            },
+            {
+                "language": "cmake",
+                "path": "./cmake.json"
+            },
+            {
+                "language": "html",
+                "path": "./html.json"
+            }
+        ]
+    }
+}

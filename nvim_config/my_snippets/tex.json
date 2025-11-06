@@ -1,0 +1,36 @@
+{
+    "document class": {
+        "prefix": "dcl",
+        "body": [
+            "\\documentclass{${1:class}} ${0}"
+        ],
+        "description": "Code snippet for document class"
+    },
+    "fraction": {
+        "prefix": "frac",
+        "body": ["\\frac{$1}{$2}"],
+        "description": ""
+    },
+    "Environment": {
+        "prefix": "beg",
+        "body": [
+            "\\begin{${1:name}}",
+            "\t$0",
+            "\\end{${1:name}}"
+        ]
+    },
+    "Equation": {
+        "prefix": "eq",
+        "body": [
+            ""
+        ]
+    },
+    "itemize": {
+        "prefix": "itemize",
+        "body": [
+            "\\begin{itemize}",
+            "\t\\item $1",
+            "\\end{itemize}"
+        ]
+    }
+}

@@ -1,2 +1,2 @@
 # dotsfile
-config files
+My config files in Linux environment.
